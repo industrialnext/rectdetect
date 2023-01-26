@@ -62,16 +62,16 @@ int main(int argc, char **argv) {
     sscanf(argv[2], "cam:%d,%d,%d", &n, &w, &h);
     cap = new VideoCapture(n);
     if (cap->isOpened() && w != 0 && h != 0) {
-      cap->set(CV_CAP_PROP_FRAME_WIDTH, w);
-      cap->set(CV_CAP_PROP_FRAME_HEIGHT, h);
+      cap->set(CAP_PROP_FRAME_WIDTH, w);
+      cap->set(CAP_PROP_FRAME_HEIGHT, h);
     }
     if (!cap->isOpened()) {
       fprintf(stderr, "Cannot open %s\n", argv[2]);
       exit(-1);
     }
   }
-  int iw = cap->get(CV_CAP_PROP_FRAME_WIDTH);
-  int ih = cap->get(CV_CAP_PROP_FRAME_HEIGHT);
+  int iw = cap->get(CAP_PROP_FRAME_WIDTH);
+  int ih = cap->get(CAP_PROP_FRAME_HEIGHT);
 
   printf("Resolution : %d x %d\n", iw, ih);
 

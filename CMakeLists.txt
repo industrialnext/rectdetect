@@ -4,8 +4,8 @@ project( rect )
 if (MSVC)
   # Edit the following two lines
 
-  include_directories("D:/opencv/build/include")
-  set(OpenCV_DIR "D:/opencv/mybuild")
+  include_directories("/opt/opencv/include")
+  set(OpenCV_DIR "/opt/opencv")
 
   # Then, execute the following commands in Developer Command Prompt for VS 2017
 
@@ -31,7 +31,7 @@ if (MSVC)
   set(CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 else()
   find_package( OpenCV REQUIRED )
-
+  message(${OpenCV_LIBS})
   find_library( LIBOPENCL OpenCL )
   include_directories( ${OPENCL_INCLUDE_DIRS} )
 endif()
